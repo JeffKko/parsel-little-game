@@ -113290,56 +113290,561 @@ PIXI.canUseNewCanvasBlendModes = function ()
 * "What matters in this life is not what we do but what we do for others, the legacy we leave and the imprint we make." - Eric Meyer
 */
 
-},{"process":"..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\node_modules\\process\\browser.js"}],"index.js":[function(require,module,exports) {
+},{"process":"..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\node_modules\\process\\browser.js"}],"src\\js\\service\\questions.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var hammer = [{
+  question: '請問露天一哥，是什麼動物？',
+  options: ['貓頭鷹', '老鷹', '加藤鷹'],
+  anser: 1
+}, {
+  question: '露天成立幾週年？',
+  options: ['10', '11', '12'],
+  anser: 2
+}, {
+  question: '露天是否成立於2006年？',
+  options: ['是', '否'],
+  anser: 0
+}, {
+  question: '露天公司全名為',
+  options: ['露天溫泉股份有限公司', '露天市集國際資訊股份有限公司', '沒屋頂國際資訊股份有限公司'],
+  anser: 1
+}, {
+  question: '我在露天買東西，可以拿到發票嗎？',
+  options: ['買東西的發票請跟賣家索取', '露天會開發票給買家', '買東西沒有發票'],
+  anser: 0
+}, {
+  question: '小露露是男生？',
+  options: ['我是男生', '我是女生'],
+  anser: 0
+}, {
+  question: '露天兩個字的筆劃加起來總共幾劃？',
+  options: ['25', '26', '27'],
+  anser: 0
+}, {
+  question: '請問露天在2018年5月推出的新型廣告名稱是？',
+  options: ['AD露', '全都露', '三點不露'],
+  anser: 0
+}, {
+  question: '請問露天廣告「名店大街」，在購買後多久會開始播放？',
+  options: ['隔天00:25', '隔天00:35', '隔天00:45'],
+  anser: 1
+}, {
+  question: '請問露天廣告「血拚好市」在首頁的商品呈現，是每次播放幾則呢？',
+  options: ['12則', '13則', '14則'],
+  anser: 0
+}, {
+  question: '請問露天廣告「血拚好市」在分類首頁的商品呈現，是每次播放幾則呢？',
+  options: ['10則', '11則', '12則'],
+  anser: 0
+}, {
+  question: '周圍都是男人(猜一句成語)',
+  options: ['左右為難', '愛人以德', '深得人心'],
+  anser: 0
+}, {
+  question: '瞧瞧過去看看未來(猜一句成語)',
+  options: ['放眼望去', '瞻前顧後', '佛眼相看'],
+  anser: 1
+}, {
+  question: '拿鍋蓋蓋在頭上(猜一句成語)',
+  options: ['亂扣帽子', '戴笠乘車', '披星戴月'],
+  anser: 0
+}, {
+  question: '功夫電影(猜一句成語)',
+  options: ['打成一片', '不費工夫', '功夫熊貓'],
+  anser: 0
+}, {
+  question: '有一隻狼來到北極，不小心掉到冰海中，被撈起來時變成了什麼？',
+  options: ['檳榔', '賓狗', '灰狼'],
+  anser: 0
+}, {
+  question: '超人保護地球，那誰保護城市？',
+  options: ['小露露', '螢幕', '一哥'],
+  anser: 1
+}, {
+  question: '你知道獅子、老虎、班馬，誰最愛亂買東西？',
+  options: ['獅子', '老虎', '班馬(黑白馬)'],
+  anser: 2
+}, {
+  question: '什麼水可以放口袋？',
+  options: ['薪水', '口水', '淚水'],
+  anser: 0
+}, {
+  question: '甚麼樣的人不能在加油站打工？',
+  options: ['貌美如花的人', '油腔滑調的人(油槍滑掉)', '英俊瀟灑的人'],
+  anser: 1
+}, {
+  question: '鵝過山洞會變成什麼？',
+  options: ['小嬰兒', '老天鵝', '過動兒 （過洞鵝）'],
+  anser: 2
+}, {
+  question: '誰生了約翰？',
+  options: ['花，因為花生醬(John)', '樹', '草'],
+  anser: 0
+}, {
+  question: '煙火打不打的到星星？',
+  options: ['打的到，因為星星就在那', '打不到，因為星星會閃'],
+  anser: 1
+}, {
+  question: '露天粉絲團中的最可愛的吉祥物叫什麼名字？',
+  options: ['佛佛', '阿佛', '佛祖'],
+  anser: 0
+}, {
+  question: '以下何者不是露天小編？',
+  options: ['天編', '鳥編', '吉妮'],
+  anser: 0
+}];
+
+var lightSword = [{
+  question: '請問露天客服電話是5558-9168？',
+  options: ['是的，沒錯', '露天沒有客服電話'],
+  anser: 0
+}, {
+  question: '露天首頁的分類目錄，總共有幾類？',
+  options: ['22', '23', '24'],
+  anser: 2
+}, {
+  question: '我的訂單紀錄可以保留多久呢？',
+  options: ['一年', '兩年', '三年'],
+  anser: 1
+}, {
+  question: '我想讓買家看清楚商品，最多可以上傳幾張照片呢？',
+  options: ['3', '6', '9'],
+  anser: 2
+}, {
+  question: '我賣的商品可以限制販售對象嗎？',
+  options: ['可以，設定買家下標限制即可', '不可以，誰想要買 就得賣誰'],
+  anser: 0
+}, {
+  question: '我賣的商品可以不要一次被同一個人買光光嗎？',
+  options: ['可以，設定每人限購數量即可', '不可以，買家想買多少就買多少'],
+  anser: 0
+}, {
+  question: '資料安全再升級，請問兩步驟登入功能又稱什麼？',
+  options: ['個人安全電腦1.0', '個人安全電腦2.0', '個人安全電腦3.0'],
+  anser: 1
+}, {
+  question: '露天推出的最新一日到貨物流是什麼？',
+  options: ['楓葉便利帶', '樹葉便利帶', '荷葉便利帶'],
+  anser: 0
+}, {
+  question: '我的訂單還沒有結帳，請問我多久內可以自行取消這筆訂單？',
+  options: ['結標後3天內', '結標後5天內', '結標後7天內'],
+  anser: 2
+}, {
+  question: '買家都不完成交易，請問我什麼時候可以對買家提出棄標？',
+  options: ['結標後5-10天', '結標後7-14天', '結標後8-20天'],
+  anser: 2
+}, {
+  question: '我想要在平台上賣東西，請問成交費怎麼算？',
+  options: ['商品結標金額 × 數量 × 0.5％', '商品結標金額 × 數量 × 1.5％', '商品結標金額 × 數量 × 2％'],
+  anser: 2
+}, {
+  question: '爸爸胖了，媽媽瘦了',
+  options: ['重男輕女', '肥環燕瘦', '口是心非'],
+  anser: 0
+}, {
+  question: '一個全身穿著金色衣服的人(猜一句成語)',
+  options: ['二八女郎', '一顯身手', '一鳴驚人'],
+  anser: 2
+}, {
+  question: '大象的媽媽為什麼是猩猩，猜一成語',
+  options: ['相得益彰', '相由心生', '相敬如賓'],
+  anser: 1
+}, {
+  question: '第十一本書（猜一句成語）',
+  options: ['不可思議(BOOK11)', '非始不可', '不可多得'],
+  anser: 0
+}, {
+  question: '三國時代哪個人物跑最快？',
+  options: ['曹操，說曹操曹操就到！', '劉備', '孫權'],
+  anser: 0
+}, {
+  question: '可以穿很久的衣服(猜日本地名)',
+  options: ['神奈川', '鬼怒川', '大井川'],
+  anser: 0
+}, {
+  question: '請問綠豆是哪裡人？',
+  options: ['綠豆雲林人', '綠豆嘉義人', '綠豆彰化人'],
+  anser: 1
+}, {
+  question: '胖妞生病最怕被探病說什麼？',
+  options: ['早日康復', '身體健康', '保重'],
+  anser: 2
+}, {
+  question: '什麼瓜不能吃？',
+  options: ['西瓜', '冬瓜', '傻瓜'],
+  anser: 2
+}, {
+  question: '什麼布切不斷？',
+  options: ['抹布', '瀑布', '菜瓜布'],
+  anser: 1
+}, {
+  question: '什麼路不能走？',
+  options: ['仁愛路', '網路', '柏油路'],
+  anser: 1
+}, {
+  question: '木魚掉到海裡，會變成什麼？',
+  options: ['吳郭魚', '虱目魚', '秋刀魚'],
+  anser: 1
+}, {
+  question: '小編們的上班時間是？',
+  options: ['9:30-18:30', '24小時全年無休', '18:31-9:29'],
+  anser: 0
+}, {
+  question: '露天粉絲團得獎公布時間為？',
+  options: ['每週五，00:00', '每週三，22:00', '每週一，12:00'],
+  anser: 1
+}];
+
+var lotion = [{
+  question: '我想要把我的賣場布置的好漂亮，請問是哪一項廣告服務？',
+  options: ['自訂商店工具', '賣場變美麗工具', '升級賣場工具'],
+  anser: 0
+}, {
+  question: '露天拍賣是什麼顏色？',
+  options: ['黃色', '橘色', '咖啡色'],
+  anser: 1
+}, {
+  question: '我想要跟賣家即時溝通，可以用什麼工具？',
+  options: ['露露通', '聊一聊', '即時通'],
+  anser: 0
+}, {
+  question: '每個身分證可以註冊幾個個人會員？',
+  options: ['1個', '2個', '3個'],
+  anser: 2
+}, {
+  question: '有買家一直亂下標我的商品，該怎麼辦？',
+  options: ['不能怎麼辦', '把他設為『黑名單』', '去他的賣場亂回來'],
+  anser: 1
+}, {
+  question: '我想要讓商品閃閃發光，是哪一種廣告服務？',
+  options: ['亮眼標題', '閃亮標題', '特色標題'],
+  anser: 2
+}, {
+  question: '露天點數不可以做什麼？',
+  options: ['買廣告', '買東西', '計費中心繳款'],
+  anser: 1
+}, {
+  question: '評價有鑽石好酷喔，請問要獲得幾個好評才能獲得鑽石？',
+  options: ['500分', '1千分', '1萬分'],
+  anser: 0
+}, {
+  question: '評價有皇冠好酷喔，請問要獲得幾個好評才能獲得皇冠？',
+  options: ['500分', '1千分', '1萬分'],
+  anser: 1
+}, {
+  question: '評價有城堡好酷喔，請問要獲得幾個好評才能獲得城堡？',
+  options: ['500分', '1千分', '1萬分'],
+  anser: 2
+}, {
+  question: '商品圖下方的愛心，可以做什麼？',
+  options: ['將商品加到追蹤清單', '覺得這個商品好可愛', '幫這個商品加分'],
+  anser: 0
+}, {
+  question: '請問老虎叫什麼名字，猜一成語',
+  options: ['虎視眈眈', '虎虎生風', '豺狼虎豹'],
+  anser: 0
+}, {
+  question: '請問烏龜的心長得像什麼？',
+  options: ['倦鳥歸巢', '兔角龜毛', '歸心似箭'],
+  anser: 2
+}, {
+  question: '選美比賽(猜一句成語)',
+  options: ['以貌取人', '國色天姿', '明眸皓齒'],
+  anser: 0
+}, {
+  question: '手機不可以掉到馬桶裡弄溼',
+  options: ['投機取巧', '機不可失', '枉費心機'],
+  anser: 1
+}, {
+  question: '什麼時候1+2不等於3？',
+  options: ['算錯的時候', '算對的時候', '沒有這種時候'],
+  anser: 0
+}, {
+  question: '手中有5隻標，水裡有5隻魚，請問可以射中幾隻魚？',
+  options: ['2隻(三隻魚閃標)', '3隻', '5隻'],
+  anser: 0
+}, {
+  question: '什麼動物最怕冷？',
+  options: ['鴨子(台語：冷冷冷)', '公雞', '鵝'],
+  anser: 0
+}, {
+  question: '大樹跟小樹差在哪裡？',
+  options: ['年紀', '種類', '土裡'],
+  anser: 2
+}, {
+  question: '哪一個月有28天？',
+  options: ['2月', '3月', '每個月都有'],
+  anser: 2
+}, {
+  question: '蚊子不叮什麼動物？',
+  options: ['狗(布丁狗)', '貓', '兔'],
+  anser: 0
+}, {
+  question: '打什麼東西不必花力氣？',
+  options: ['打東東', '打瞌睡', '打地鼠'],
+  anser: 1
+}, {
+  question: '什麼鼠最愛乾淨？',
+  options: ['米老鼠', '天竺鼠', '環保署'],
+  anser: 2
+}, {
+  question: '請問粉絲團星期幾會公布當週『熱搜關鍵字』？',
+  options: ['星期一', '星期四', '星期六'],
+  anser: 2
+}, {
+  question: '請問粉絲團星期幾會公布當週『熱銷商品』？',
+  options: ['星期二', '星期五', '星期日'],
+  anser: 2
+}];
+
+var branch = [{
+  question: '請問露天站上的物件數，是在甚麼時候突破1億件的呢？',
+  options: ['2015', '2014', '2013'],
+  anser: 0
+}, {
+  question: '我有台灣居留證，請問可以註冊買東西嗎？',
+  options: ['可以，用居留證註冊成功就開始買', '不行，歪國人都不行買'],
+  anser: 0
+}, {
+  question: '請問我在國外也可以管理我的賣場嗎？',
+  options: ['可以，開啟國外登入功能即可', '不行，為確保帳號安全，只能在台灣登入'],
+  anser: 0
+}, {
+  question: '請問我可以直接用facebook帳號登入露天拍賣嗎？',
+  options: ['可以，跟露天會員帳號綁定即可', '不行，只能用露天帳號登入'],
+  anser: 0
+}, {
+  question: '賣家人很好，我不小給到差評怎麼辦？',
+  options: ['將錯就錯，沒辦法改', '發露露通給賣家說對不起', '點選「更正信用評價」，幫賣家改成優評'],
+  anser: 2
+}, {
+  question: '買家透過支付連匯款給我，我可以去哪邊確認款項呢？',
+  options: ['收錢管理中心', '收款管理中心', '收帳管理中心'],
+  anser: 1
+}, {
+  question: '露天好棒棒，我可以從其他平台直接把商品搬過來嗎？',
+  options: ['當然可以，線上申請好便利', '暫時不行，請先慢慢搬家唷'],
+  anser: 0
+}, {
+  question: '露天的英文是？',
+  options: ['Deer Sky', 'Ruten', 'Rutan'],
+  anser: 1
+}, {
+  question: '每天2場獨家瘋搶限時殺，是幾點開搶？',
+  options: ['上午10:00、下午10:00', '上午8:00、下午8:00', '上午11:00、下午11:00'],
+  anser: 0
+}, {
+  question: '熱門搜尋是每日幾點會更新呢？',
+  options: ['中午12:00', '下午2:00', '下午8:00'],
+  anser: 1
+}, {
+  question: '把喜歡的商品加到我的最愛後，可以去哪邊看呢？',
+  options: ['最愛商品', '追蹤中', '我的最愛'],
+  anser: 1
+}, {
+  question: '一顆心值多少元？',
+  options: ['一千', '一萬', '一億(一心一意)'],
+  anser: 2
+}, {
+  question: '要怎樣讓麻雀變安靜，猜一句成語',
+  options: ['門可羅雀', '鴉雀無聲', '雀屏中選'],
+  anser: 1
+}, {
+  question: '一一一一(猜一句成語)',
+  options: ['獨一無二', '一刀兩斷', '一五一十'],
+  anser: 0
+}, {
+  question: '一乘一等於一',
+  options: ['一心一意', '一刻千金', '一乘不變'],
+  anser: 2
+}, {
+  question: '哪個地方不會下雨？',
+  options: ['漢口街', '芝麻街(美語)', '唐人街'],
+  anser: 1
+}, {
+  question: '參加路跑比賽，你追過第二名之後，你是第幾名？',
+  options: ['第一名', '第二名', '第三名'],
+  anser: 1
+}, {
+  question: '世界最長的車是？',
+  options: ['火車', '捷運', '塞車'],
+  anser: 2
+}, {
+  question: '什麼情況下2會大於5，5會大於0，0會大於2？',
+  options: ['算數的時候', '猜拳的時候'],
+  anser: 1
+}, {
+  question: '鯊魚不小心吞了一顆綠豆，牠變成了什麼？',
+  options: ['紅豆冰', '綠豆沙', '黑豆水'],
+  anser: 1
+}, {
+  question: '一隻牛頭朝東請問尾巴朝哪邊？',
+  options: ['朝西', '朝南', '朝下'],
+  anser: 2
+}, {
+  question: '公雞生病，誰來照顧？',
+  options: ['你', '姊姊', '姑姑 (姑姑顧)'],
+  anser: 2
+}, {
+  question: '大象的媽媽是誰？',
+  options: ['猩猩(象由心生)', '猴子', '狒狒'],
+  anser: 0
+}, {
+  question: '以下何者小編還沒有去採訪過？',
+  options: ['GameBox', '萬年東海', '必買站'],
+  anser: 1
+}, {
+  question: '小編中秋節的時候，是否有在公司烤過甕仔雞？',
+  options: ['有的，又香又油又好吃', '沒有，公司不給烤'],
+  anser: 0
+}];
+
+exports.default = {
+  hammer: hammer,
+  lightSword: lightSword,
+  lotion: lotion,
+  branch: branch
+};
+},{}],"src\\js\\service\\coin.js":[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var saveAward = function saveAward(_ref) {
+  var rid = _ref.rid,
+      type = _ref.type;
+
+  $.ajax({
+    url: 'https://b3589481400.rapi.dev5.ruten.com.tw/api/coin/v1/deposit',
+    dataType: 'json',
+    type: 'POST',
+    data: {
+      'ctrl_rowid': rid,
+      'ref_event': type
+    },
+    xhrFields: {
+      withCredentials: true
+    },
+    success: function success(res) {
+      console.log(res);
+    },
+    error: function error(res) {
+      console.log(res);
+    }
+  });
+};
+
+var checkPermission = function checkPermission(userNick, type) {
+  $.ajax({
+    url: 'https://b3589481400.rapi.dev5.ruten.com.tw/api/users/v1/' + userNick + '/coin/permission',
+    dataType: 'json',
+    type: 'GET',
+    data: {
+      'ref_event': type
+    },
+    xhrFields: {
+      withCredentials: true
+    },
+    success: function success(res) {
+      console.log(res);
+    },
+    error: function error(res) {
+      console.log(res);
+    }
+  });
+};
+
+var checkLogin = function checkLogin() {
+  $.ajax({
+    url: '',
+    dataType: 'json',
+    type: 'POST',
+    data: {},
+    xhrFields: {
+      withCredentials: true
+    },
+    success: function success(res) {
+      if (!res) {
+        location.href = 'https://b3589481400.member.dev2.ruten.com.tw/user/login.htm?refer=' + window.encodeURIComponent(window.location.href);
+      } else {
+        // vm.user.rid = common.GetCookie('bid_rid')
+        // vm.user.name = res.user_nick
+        // vm.checkPermission()
+      }
+    },
+    error: function error(res) {
+      location.href = 'https://b3589481400.member.dev2.ruten.com.tw/user/login.htm?refer=' + window.encodeURIComponent(window.location.href);
+    }
+  });
+};
+
+exports.saveAward = saveAward;
+exports.checkPermission = checkPermission;
+exports.checkLogin = checkLogin;
+},{}],"index.js":[function(require,module,exports) {
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _questions = require('/src/js/service/questions.js');
+
+var _questions2 = _interopRequireDefault(_questions);
+
+var _coin = require('/src/js/service/coin.js');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 window.PIXI = require('phaser-ce/build/custom/pixi');
 window.p2 = require('phaser-ce/build/custom/p2');
 window.Phaser = require('phaser-ce/build/custom/phaser-split');
 
-var game = new Phaser.Game(640, 820, Phaser.AUTO, 'phaser-example');
-var story = {
-  "1": {
-    question: '露天首頁的分類目錄，總共有幾類？',
-    options: {
-      A: '22',
-      B: '23',
-      C: '24'
-    },
-    anser: 'C'
-  },
-  "2": {
-    question: '我的訂單紀錄可以保留多久呢？',
-    options: {
-      A: '一年',
-      B: '兩年',
-      C: '三年'
-    },
-    anser: 'B'
-  },
-  "3": {
-    question: '我想讓買家看清楚商品，最多可以上傳幾張照片呢？',
-    options: {
-      A: '3',
-      B: '6',
-      C: '9'
-    },
-    anser: 'C'
-  },
-  "4": {
-    question: '我賣的商品可以限制販售對象嗎？',
-    options: {
-      O: '可以，設定買家下標限制即可',
-      X: '不可以，誰想要買 就得賣誰'
-    },
-    anser: 'O'
-  },
-  "5": {
-    question: '我賣的商品可以不要一次被同一個人買光光嗎？',
-    options: {
-      A: '可以，設定每人限購數量即可',
-      B: '不可以，買家想買多少就買多少'
-    },
-    anser: 'A'
+// import Gray from '/src/js/filters/gray.js'
+
+var Gray = function (_Phaser$Filter) {
+  _inherits(Gray, _Phaser$Filter);
+
+  function Gray(game) {
+    _classCallCheck(this, Gray);
+
+    var _this = _possibleConstructorReturn(this, (Gray.__proto__ || Object.getPrototypeOf(Gray)).call(this, game));
+
+    _this.uniforms.gray = { type: '1f', value: 1.0 };
+    _this.fragmentSrc = ["precision mediump float;", "varying vec2       vTextureCoord;", "varying vec4       vColor;", "uniform sampler2D  uSampler;", "uniform float      gray;", "void main(void) {", "gl_FragColor = texture2D(uSampler, vTextureCoord);", "gl_FragColor.rgb = mix(gl_FragColor.rgb, vec3(0.2126 * gl_FragColor.r + 0.7152 * gl_FragColor.g + 0.0722 * gl_FragColor.b), gray);", "}"];
+    return _this;
   }
+
+  _createClass(Gray, [{
+    key: 'gray',
+    set: function set(value) {
+      this.uniforms.gray.value = value;
+    },
+    get: function get() {
+      return this.uniforms.gray.value;
+    }
+  }]);
+
+  return Gray;
+}(Phaser.Filter);
+
+var game = new Phaser.Game(640, 820, Phaser.AUTO, 'phaser-example');
+var randomGenerator = new Phaser.RandomDataGenerator();
+var isPlayed = {
+  lightSword: false,
+  hammer: false,
+  branch: true,
+  lotion: false
 };
 
 function init() {
@@ -113348,12 +113853,42 @@ function init() {
 
   this.preload = function () {
     this.stage.backgroundColor = '#182d3b';
-    this.load.image('sky', 'assets/sky.png');
-    this.load.image('ground', 'assets/platform.png');
-    this.load.image('star', 'assets/star.png');
-    this.load.image('bomb', 'assets/bomb.png');
-    this.load.image('button', 'assets/button2.png');
-    this.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+    // this.load.image('sky', 'assets/sky.png');
+    // this.load.image('ground', 'assets/platform.png');
+    // this.load.image('star', 'assets/star.png');
+    // this.load.image('bomb', 'assets/bomb.png');
+    // this.load.image('phaser', 'assets/phaser2.png');
+    this.load.image('button', 'assets/game_btn.png');
+    //ruten
+    this.load.image('title', 'assets/title.png');
+    this.load.image('cloud', 'assets/cloud.png');
+    this.load.image('cloud2', 'assets/cloud2.png');
+    this.load.image('island', 'assets/island.png');
+    this.load.image('coffee', 'assets/coffee.png');
+    this.load.image('harry', 'assets/harry.png');
+    this.load.image('princess', 'assets/princess.png');
+    this.load.image('thunder', 'assets/thunder.png');
+    this.load.image('white_soldier', 'assets/white_soldier.png');
+    this.load.image('harry_bg', 'assets/harry_bg.png');
+    this.load.image('princess_bg', 'assets/princess_bg.png');
+    this.load.image('thunder_bg', 'assets/thunder_bg.png');
+    this.load.image('white_soldier_bg', 'assets/white_soldier_bg.png');
+    this.load.image('branch', 'assets/branch.png');
+    this.load.image('lotion', 'assets/lotion.png');
+    this.load.image('hammer', 'assets/hammer.png');
+    this.load.image('light_sword', 'assets/light_sword.png');
+    this.load.image('bn6', 'assets/bn6.png');
+    this.load.image('bn7', 'assets/bn7.png');
+    this.load.image('ticket1', 'assets/ticket1.png');
+    this.load.image('ticket2', 'assets/ticket2.png');
+    this.load.image('ticket3', 'assets/ticket3.png');
+    this.load.image('ticket4', 'assets/ticket4.png');
+    this.load.image('ticket5', 'assets/ticket5.png');
+    this.load.image('close_btn', 'assets/close_btn.png');
+
+    this.load.image('paper', 'assets/paper.png');
+
+    // this.load.spritesheet('dude', 'assets/dude.png', 32, 48);
 
     text = game.add.text(32, 32, 'Click to start load', { fill: '#ffffff' });
     this.load.onLoadStart.add(loadStart, this);
@@ -113370,12 +113905,10 @@ function init() {
 
   //	This callback is sent the following parameters:
   function fileComplete(progress, cacheKey, success, totalLoaded, totalFiles) {
-
     text.setText("File Complete: " + progress + "% - " + totalLoaded + " out of " + totalFiles);
   }
 
   function loadComplete() {
-
     if (isDeadline) {
       text.setText("Load Complete");
       game.state.start('home');
@@ -113386,116 +113919,389 @@ function init() {
 }
 
 function home() {
-  var button = void 0;
+  var weapon = null,
+      clouds = null,
+      cloudsFront = null;
+
   this.create = function () {
-    this.stage.backgroundColor = '#182d3b';
-    this.add.image(0, 0, 'sky');
+    var _this2 = this;
+
+    this.stage.backgroundColor = '#8adbff';
 
     //	Just to kick things off
-    // button = game.add.button(game.world.centerX + 110, game.world.centerY, 'dude', start, this, 2, 1, 0);
-    // button.anchor.set(0.5);
-    this.add.image(game.world.centerX + 110, game.world.centerY, 'dude').anchor.set(0.5);
-
-    var text = game.add.text(game.world.centerX, game.world.centerY, 'start game', { fill: '#ffffff' });
-    text.anchor.set(0.5);
-    text.inputEnabled = true;
-    text.events.onInputDown.add(function () {
-      game.state.start('play');
-    }, this);
 
     // game.input.onDown.addOnce(function() {
     //   text.setText('eqexe2sz3qawedzaew')
     // }, this);
+    // let filterGray = game.add.filter('Gray')
+    // let cloud = game.add.sprite(30, 500, 'cloud')
+    // let cloud2 = game.add.sprite(30, 500, 'cloud2')
+
+    clouds = game.add.physicsGroup();
+
+    for (var i = 0; i < 5; i += 1) {
+      var cloudType = ['cloud', 'cloud2'];
+      var cloud = clouds.create(game.world.randomX, _cloudPosY(), cloudType[game.rnd.between(0, 1)]);
+      cloud.anchor.set(0.5);
+      cloud.scale.set(0.2);
+      // game.add.tween(cloud).to( { x: -100 }, game.rnd.between(10000, 12000), Phaser.Easing.Linear.None, true)
+      cloud.body.velocity.x = game.rnd.between(-10, -30);
+    }
+
+    // clouds.anchor.set(0.5)
+    // clouds.scale.set(0.2, 0.2)
+
+    var title = game.add.sprite(game.world.centerX, -100, 'title');
+    title.anchor.set(0.5);
+    title.scale.x = title.scale.y = 0.3;
+    game.add.tween(title).to({ y: 100 }, 3000, Phaser.Easing.Bounce.Out, true, 1500);
+
+    var island = game.add.sprite(game.world.centerX, game.world.centerY - 50, 'island');
+    island.anchor.set(0.5);
+    island.scale.x = island.scale.y = 0.28;
+    game.add.tween(island).to({ y: island.y - 15 }, 2000, Phaser.Easing.Linear.None, true, 0, -1, true);
+
+    var coffee = game.add.sprite(game.world.centerX - 20, 750, 'coffee');
+    coffee.anchor.set(0.5);
+    coffee.scale.x = coffee.scale.y = 0.4;
+
+    var lightSword = game.add.button(game.world.centerX + 150, 170 + game.world.centerY, 'light_sword', function () {}, this, 2, 1, 0);
+    lightSword.isPlayed = isPlayed.lightSword;
+    lightSword.dude = 'white_soldier';
+    var hammer = game.add.button(game.world.centerX - 150, 170 + game.world.centerY, 'hammer', function () {}, this, 2, 1, 0);
+    hammer.isPlayed = isPlayed.hammer;
+    hammer.dude = 'thunder';
+    var branch = game.add.button(game.world.centerX + 150, 170 + game.world.centerY + 160, 'branch', function () {}, this, 2, 1, 0);
+    branch.isPlayed = isPlayed.branch;
+    branch.dude = 'harry';
+    var lotion = game.add.button(game.world.centerX - 150, 170 + game.world.centerY + 160, 'lotion', function () {}, this, 2, 1, 0);
+    lotion.isPlayed = isPlayed.lotion;
+    lotion.dude = 'princess';
+
+    var weaponList = [lightSword, hammer, branch, lotion];
+
+    weaponList.forEach(function (weapon) {
+      weapon.anchor.set(0.5);
+      weapon.scale.x = weapon.scale.y = 0.25;
+      weapon.onInputOver.add(function (target) {
+        target.scale.x = target.scale.y = 0.3;
+      }, _this2);
+      weapon.onInputOut.add(function (target) {
+        target.scale.x = target.scale.y = 0.25;
+      }, _this2);
+
+      if (weapon.isPlayed) {
+        _this2.filterGray = new Gray(_this2.game);
+        weapon.filters = [_this2.filterGray];
+        weapon.onInputUp.add(function () {
+          alert('今天已經玩過了喔！');
+        });
+      } else {
+        weapon.onInputUp.add(function () {
+          game.state.start('play', true, false, weapon.dude);
+        });
+      }
+    });
+
+    cloudsFront = game.add.physicsGroup();
+
+    for (var _i = 0; _i < 3; _i += 1) {
+      var _cloudType = ['cloud', 'cloud2'];
+      var _cloud = cloudsFront.create(game.world.randomX, _cloudFrontPosY(), _cloudType[game.rnd.between(0, 1)]);
+      _cloud.anchor.set(0.5);
+      _cloud.scale.set(0.18);
+      // game.add.tween(cloud).to( { x: -100 }, game.rnd.between(10000, 12000), Phaser.Easing.Linear.None, true)
+      _cloud.body.velocity.x = game.rnd.between(-10, -65);
+    }
+
+    var hintPopup = {
+      name: 'ticket5',
+      action: null,
+      label: {
+        x: game.world.centerX,
+        y: game.world.centerY - 95,
+        text: '歡迎來到『露天覓寶樂園』\n只要通過挑戰，\n就可以獲得彩票。\n請選擇一個裝備開始闖關',
+        style: { font: 'bold 20pt Arial' },
+        config: { lineSpacing: 14 }
+      }
+    };
+    game.time.events.add(5000, function () {
+      showPopup(hintPopup);
+    });
   };
+
+  this.update = function () {
+    clouds.forEach(function (cloud) {
+      if (cloud.x < -100) {
+        cloud.x = game.world.width + 100;
+        cloud.y = _cloudPosY();
+      }
+    }, this);
+    cloudsFront.forEach(function (cloud) {
+      if (cloud.x < -100) {
+        cloud.x = game.world.width + 100;
+        cloud.y = _cloudFrontPosY();
+      }
+    }, this);
+  };
+
+  function _cloudPosY() {
+    var y = game.world.randomY;
+    return y > 450 ? _cloudPosY() : y;
+  }
+  function _cloudFrontPosY() {
+    var y = game.world.randomY;
+    return y > 450 || y < 200 ? _cloudFrontPosY() : y;
+  }
 }
 
 function play() {
   var question = void 0,
-      buttonA = void 0,
-      buttonB = void 0,
-      buttonC = void 0,
-      buttonD = void 0,
-      optionA = void 0,
-      optionB = void 0,
-      optionC = void 0,
-      optionD = void 0,
-      scoreText = void 0,
-      score = 0,
-      anser = '',
-      storyLength = Object.keys(story).length,
-      storyStep = 1;
+      paper = void 0,
+      spriteDude = void 0,
+      anser = null,
+      storyStep = 0,
+      buttonList = [],
+      optionTextList = [],
+      dude = null,
+      story = void 0;
 
-  this.init = function (a) {
-    console.log(a);
+  this.init = function (userChooseDude) {
+    var dudeMap = {
+      'thunder': {
+        weapon: 'hammer',
+        backgroundColor: '#1b1848'
+      },
+      'white_soldier': {
+        weapon: 'lightSword',
+        backgroundColor: '#1f0820'
+      },
+      'princess': {
+        weapon: 'lotion',
+        backgroundColor: '#6a8437'
+      },
+      'harry': {
+        weapon: 'branch',
+        backgroundColor: '#021423'
+      }
+    };
+    dude = userChooseDude;
+    document.getElementsByTagName('body')[0].style.backgroundColor = dudeMap[dude].backgroundColor;
+    story = _questions2.default[dudeMap[dude].weapon].sort(function () {
+      return 0.5 - Math.random();
+    }).slice(0, 4);
   };
   this.create = function () {
+    console.log(dude);
+    var bg = this.add.image(0, 0, dude + '_bg');
+    bg.scale.x = 0.6;
+    bg.scale.y = 0.43;
+    paper = this.add.image(game.world.centerX, game.world.centerY - 100, 'paper');
+    paper.anchor.set(0.5);
+    paper.scale.x = 0.4;
+    paper.scale.y = 0.35;
+    spriteDude = game.add.sprite(160, 620, dude);
+    spriteDude.anchor.set(0.5);
+    spriteDude.scale.x = 0.4;
+    spriteDude.scale.y = 0.4;
+    // spriteDude.fixedToCamera = true
 
-    scoreText = game.add.text(game.world.centerX, 50, 'score: 0', { fill: '#ffffff' });
-    scoreText.anchor.set(0.5);
+    _createQuestion();
 
-    question = game.add.text(game.world.centerX, 100, '請問Jeff長得像誰 ?', { font: 'bold 24pt Arial', fill: '#ffffff', backgroundColor: 'rgba(0,255,0,0.25)', lineSpacing: 80 });
-    question.anchor.set(0.5);
-
-    buttonA = game.add.button(game.world.centerX, game.world.centerY - 100, 'button', function () {}, this, 2, 1, 0);
-    buttonA.anchor.set(0.5);
-    buttonA.setScaleMinMax(1, 0.6, 1, 0.6);
-    optionA = game.add.text(game.world.centerX, game.world.centerY - 100, 'A: 劉以豪', { fill: '#ffffff', tabs: 50 });
-    optionA.anchor.set(0.5);
-
-    buttonB = game.add.button(game.world.centerX, game.world.centerY + 30, 'button', function () {}, this, 2, 1, 0);
-    buttonB.anchor.set(0.5);
-    buttonB.setScaleMinMax(1, 0.6, 1, 0.6);
-    optionB = game.add.text(game.world.centerX, game.world.centerY + 30, 'B: 金城武', { fill: '#ffffff', tabs: 50 });
-    optionB.anchor.set(0.5);
-
-    buttonC = game.add.button(game.world.centerX, game.world.centerY + 160, 'button', function () {
-      anser = 'C';
-    }, this, 2, 1, 0);
-    buttonC.anchor.set(0.5);
-    buttonC.setScaleMinMax(1, 0.6, 1, 0.6);
-    optionC = game.add.text(game.world.centerX, game.world.centerY + 160, 'C: 宋仲基', { fill: '#ffffff', font: 'bold 20pt Arial', align: 'left', wordWrap: true, wordWrapWidth: 30, maxWidth: 50 });
-    optionC.anchor.set(0.5);
-
-    buttonD = game.add.button(game.world.centerX, game.world.centerY + 290, 'button', function () {}, this, 2, 1, 0);
-    buttonD.anchor.set(0.5);
-    buttonD.setScaleMinMax(1, 0.6, 1, 0.6);
-    optionD = game.add.text(game.world.centerX, game.world.centerY + 290, 'D: 以上皆是', { fill: '#ffffff', tabs: 50, wordWrap: true, wordWrapWidth: 30, maxWidth: 50 });
-    optionD.anchor.set(0.5);
-    // buttonA.bringToTop()
+    // cursors = game.input.keyboard.createCursorKeys()
   };
   this.update = function () {
+    if (anser !== null) {
+      var currectAnser = story[storyStep].anser;
 
-    if (anser) {
-      console.log(anser);
-      scoreText.setText('score: ' + (score += 1));
-      anser = '';
-
-      if (storyStep < storyLength) {
-
-        if (storyStep === 2) {
-          optionD.kill();
-        } else if (storyStep === 3) {
-          game.world.callAll('revive');
-        }
-
-        question.setText(story[storyStep].question);
-        var options = Object.keys(story[storyStep].options);
-
-        optionA.setText(story[storyStep].options[options[0]]);
-        optionB.setText(story[storyStep].options[options[1]]);
-        optionC.setText(story[storyStep].options[options[2]]);
-        // optionD.setText(story[storyStep].options[options[3]])
-        storyStep += 1;
+      if (anser !== currectAnser) {
+        // buttonList[anser].inputEnabled = false
+        var action = buttonList[anser].onInputUp;
+        buttonList[anser].onInputUp = null;
+        var buttonTween = game.add.tween(buttonList[anser]).to({ x: buttonList[anser].x - 10 }, 100, Phaser.Easing.Linear.None, true, 0, 6, true);
+        buttonTween.onComplete.add(function (target) {
+          target.onInputUp = action;
+        }, this);
+        var textTween = game.add.tween(optionTextList[anser]).to({ x: buttonList[anser].x - 10 }, 100, Phaser.Easing.Linear.None, true, 0, 6, true);
       } else {
-        game.state.start('over');
+        var _buttonTween = game.add.tween(buttonList[anser].scale).to({ x: 3, y: 3 }, 800, Phaser.Easing.Linear.None, true);
+        game.add.tween(buttonList[anser]).to({ alpha: 0.1 }, 800, Phaser.Easing.Linear.None, true);
+        game.add.tween(optionTextList[anser].scale).to({ x: 3, y: 3 }, 800, Phaser.Easing.Linear.None, true);
+        game.add.tween(optionTextList[anser]).to({ alpha: 0.1 }, 800, Phaser.Easing.Linear.None, true);
+
+        _buttonTween.onComplete.add(function (target) {
+
+          buttonList.forEach(function (button) {
+            return button.destroy();
+          });
+          optionTextList.forEach(function (option) {
+            return option.destroy();
+          });
+          buttonList = [];
+          optionTextList = [];
+
+          storyStep += 1;
+
+          if (storyStep < story.length) {
+
+            _createQuestion();
+          } else {
+            storyStep = 0;
+
+            question.destroy();
+            var tweenPaper = game.add.tween(paper).to({ y: -500 }, 1800, Phaser.Easing.Linear.None, true);
+            tweenPaper.onComplete.add(function (target) {
+              target.destroy();
+            });
+            var tweenDude = game.add.tween(spriteDude).to({ x: game.world.centerX }, 2000, Phaser.Easing.Linear.None, true);
+            tweenDude.onComplete.add(function (target) {
+              game.state.start('over', false, false);
+            });
+            game.add.tween(spriteDude).to({ angle: spriteDude.angle + 5 }, 200, Phaser.Easing.Linear.None, true, 0, 10, true);
+          }
+        }, this);
       }
+
+      anser = null;
     }
   };
+
+  function _createQuestion() {
+    var _this3 = this;
+
+    console.log(story[storyStep]);
+
+    var options = story[storyStep].options;
+
+    var _loop = function _loop(i) {
+
+      var button = game.add.button(game.world.centerX, 250 + i * 100, 'button', function () {}, _this3, 2, 1, 0);
+      var optionText = void 0;
+      button.anchor.set(0.5);
+      button.scale.x = 0.85;
+      button.scale.y = 0.75;
+      button.alpha = 0;
+      button.onInputOver.add(function () {
+        button.scale.x = 0.9;
+        button.scale.y = 0.8;
+        optionText.scale.x = optionText.scale.y = 1.05;
+      }, _this3);
+      // button.onInputDown.add(function(){
+      //   button.scale.x = 0.85
+      //   button.scale.y = 0.75
+      //   optionText.scale.x = optionText.scale.y = 1
+      // }, this);
+      button.onInputOut.add(function () {
+        button.scale.x = 0.85;
+        button.scale.y = 0.75;
+        optionText.scale.x = optionText.scale.y = 1;
+      }, _this3);
+
+      // button.onInputUp.add(up, this);
+
+      // button.inputEnabled = false
+
+      var buttonTween = game.add.tween(button).to({ alpha: 1 }, 1600, Phaser.Easing.Linear.None, true, 1500, 0, false);
+      buttonTween.onComplete.add(function (target) {
+        // target.inputEnabled = true
+        target.onInputUp.add(function () {
+          anser = i;
+        }, this);
+      }, _this3);
+      buttonList.push(button);
+
+      if (options[i].length > 9) {
+        optionText = game.add.text(game.world.centerX, 250 + i * 100, filterText(options[i], 9), { font: 'bold 14pt Arial', fill: '#7d5c22' });
+      } else {
+        optionText = game.add.text(game.world.centerX, 250 + i * 100, options[i], { font: 'bold 18pt Arial', fill: '#7d5c22' });
+      }
+
+      optionText.anchor.set(0.5);
+      optionText.alpha = 0;
+      game.add.tween(optionText).to({ alpha: 1 }, 2000, Phaser.Easing.Linear.None, true, 1500, 0, false);
+
+      optionTextList.push(optionText);
+    };
+
+    for (var i = 0; i < options.length; i += 1) {
+      _loop(i);
+    }
+
+    if (question) question.destroy();
+    question = game.add.text(game.world.centerX, 125, filterText(story[storyStep].question, 10), { font: 'bold 23pt Arial', fill: '#333', lineSpacing: 80 });
+    question.anchor.set(0.5, 0.5);
+    // game.add.tween(question).to( { x: game.world.centerX }, 1300, Phaser.Easing.Bounce.Out, true);
+  }
 }
 
 function over() {
+  var overPopupList = null;
+
+  this.init = function () {
+    overPopupList = [{
+      name: 'ticket1',
+      action: {
+        x: game.world.centerX,
+        y: game.world.centerY + 200,
+        callback: function callback() {}
+      },
+      label: {
+        x: game.world.centerX + 75,
+        y: game.world.centerY - 95,
+        text: '闖關成功！\n獲得彩票4張！',
+        style: { font: 'bold 20pt Arial' }
+      }
+    }, {
+      name: 'ticket2',
+      action: {
+        x: game.world.centerX,
+        y: game.world.centerY + 200,
+        callback: function callback() {}
+      },
+      label: {
+        x: game.world.centerX,
+        y: game.world.centerY + 130,
+        text: '你真是聰明絕頂',
+        style: { font: 'bold 24pt Arial' }
+      }
+    }, {
+      name: 'ticket3',
+      action: {
+        x: game.world.centerX,
+        y: game.world.centerY + 200,
+        callback: function callback() {}
+      },
+      label: {
+        x: game.world.centerX,
+        y: game.world.centerY + 110,
+        text: '阿不就好棒棒！\n彩票4張給你',
+        style: { font: 'bold 20pt Arial' }
+      }
+    }, {
+      name: 'ticket4',
+      action: {
+        x: game.world.centerX,
+        y: game.world.centerY,
+        callback: function callback() {}
+      },
+      label: {
+        x: game.world.centerX,
+        y: game.world.centerY - 70,
+        text: '4張彩票進帳囉',
+        style: { font: 'bold 24pt Arial' }
+      }
+    }];
+  };
+
   this.create = function () {
-    game.add.text(game.world.centerX, game.world.centerY, 'GAME OVER', { fill: '#ffffff', font: 'bold 40pt Arial' });
+    this.stage.backgroundColor = '#333';
+
+    // game.add.text(game.world.centerX, game.world.centerY, 'GAME OVER', { fill: '#ffffff',font: 'bold 40pt Arial',}).anchor.set(0.5)
+    showPopup(overPopupList[game.rnd.between(0, 3)]);
+
+    game.input.onDown.addOnce(function () {
+      game.state.start('home');
+    }, this);
   };
 }
 
@@ -113509,7 +114315,53 @@ game.state.start('init');
 if (document.querySelectorAll('canvas').length > 0) {
   document.querySelectorAll('canvas')[0].remove();
 }
-},{"phaser-ce/build/custom/pixi":"node_modules\\phaser-ce\\build\\custom\\pixi.js","phaser-ce/build/custom/p2":"node_modules\\phaser-ce\\build\\custom\\p2.js","phaser-ce/build/custom/phaser-split":"node_modules\\phaser-ce\\build\\custom\\phaser-split.js"}],"..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
+
+function showPopup(current) {
+  var popopContainer = void 0,
+      closeBtn = void 0,
+      actionBtn = void 0,
+      text = void 0,
+      overlay = void 0;
+
+  popopContainer = game.add.image(game.world.centerX, game.world.centerY, current.name);
+  popopContainer.anchor.set(0.5);
+  closeBtn = game.add.button(game.world.centerX + 185, 250 - 105, 'close_btn', function () {
+    popopContainer.destroy();
+    closeBtn.destroy();
+    text.destroy();
+    overlay.destroy();
+    if (actionBtn) actionBtn.destroy();
+  }, this, 2, 1, 0);
+  closeBtn.anchor.set(0.5);
+  closeBtn.input.priorityID = 1;
+
+  if (current.action) {
+    actionBtn = game.add.button(current.action.x, current.action.y, 'bn7', function () {}, this, 2, 1, 0);
+    actionBtn.anchor.set(0.5);
+    actionBtn.input.priorityID = 1;
+  }
+
+  text = game.add.text(current.label.x, current.label.y, current.label.text, Object.assign({ fill: '#ffffff' }, current.label.style));
+  if (current.label.config) Object.assign(text, current.label.config);
+  text.anchor.set(0.5);
+  // This is event #1 added to background sprite
+  overlay = game.add.sprite(0, 0);
+  overlay.fixedToCamera = true;
+  overlay.scale.setTo(game.width, game.height);
+  overlay.inputEnabled = true;
+  overlay.input.priorityID = 0; // lower priority
+}
+
+function filterText(text, num) {
+  return text.split('').reduce(function (reducer, value, index) {
+    if (index === 0 || index !== text.length - 1) {
+      return (index + 1) % num ? reducer + value : reducer + value + '\n';
+    } else {
+      return reducer + value;
+    }
+  });
+}
+},{"phaser-ce/build/custom/pixi":"node_modules\\phaser-ce\\build\\custom\\pixi.js","phaser-ce/build/custom/p2":"node_modules\\phaser-ce\\build\\custom\\p2.js","phaser-ce/build/custom/phaser-split":"node_modules\\phaser-ce\\build\\custom\\phaser-split.js","/src/js/service/questions.js":"src\\js\\service\\questions.js","/src/js/service/coin.js":"src\\js\\service\\coin.js"}],"..\\AppData\\Roaming\\npm\\node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -113538,7 +114390,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '62178' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51955' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
